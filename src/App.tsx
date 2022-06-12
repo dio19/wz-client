@@ -4,9 +4,9 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import { SideMenuItem } from './types/interfaces';
-import { ImUsers } from 'react-icons/im';
-import { BiTask } from 'react-icons/bi'
 import Home from './components/Home';
 import SideMenu from './components/SideMenu';
 import Tasks from './components/Tasks';
@@ -24,13 +24,13 @@ function App() {
     {
       id: "1",
       label: "Users",
-      icon: ImUsers,
+      icon: AssignmentTurnedInIcon,
       url: "/users"
     },
     {
       id: "2",
       label: "Tasks",
-      icon: BiTask,
+      icon: AssignmentIndIcon,
       url: "/tasks"
     },
   ];

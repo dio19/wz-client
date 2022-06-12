@@ -1,5 +1,4 @@
-import { IconType } from "react-icons";
-
+import SvgIcon from '@material-ui/core/SvgIcon';
 interface DataUser {
   id: number
   name: string
@@ -32,7 +31,7 @@ interface Users {
 interface SideMenuItem {
     id: string,
     label: string,
-    icon: IconType,
+    icon: typeof SvgIcon,
     url: string
 }
 

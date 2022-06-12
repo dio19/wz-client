@@ -29,8 +29,10 @@
     }
 
     &-icon {
-      height: 32px;
-      width: 32px;
+      .MuiSvgIcon-root {
+        height: 32px;
+        width: 32px;
+      }
     }
   
     &-label {

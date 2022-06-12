@@ -7,7 +7,7 @@ const SideMenuItemView = ({item, isOpen}: SideMenuItemViewProps) => {
       <a href={item.url}>
         <div className={classNames("MenuItem__content",{"MenuItem__content-collapsed": !isOpen})}>
             <div className="MenuItem__content-icon">
-              <item.icon size="32" />
+              <item.icon />
             </div>
             <div className="MenuItem__content-label">
               {item.label}
