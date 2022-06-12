@@ -1,0 +1,48 @@
+@import '../shared.scss';
+
+.SideMenu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 200px;
+  background-color: #222;
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  @include transition(width);
+
+  a {
+    text-decoration: none;
+  }
+
+  &-collapsed {
+    width: 68px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: right;
+
+    &-icon {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      color: white;
+      padding: 10px;
+      width: 68px;
+    }
+  }
+
+  &__logo {
+    padding: 10px;
+    height: 180px;
+    @include transition(height);
+
+    &-collapsed {
+      height: 45px;
+    }
+
+  }
+}

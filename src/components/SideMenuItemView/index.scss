@@ -1,0 +1,47 @@
+@import '../shared.scss';
+
+.MenuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin: 0 5px;
+
+  a {
+    color: white;
+    padding: 10px 10px 10px 12px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+
+    @include transition(width);
+
+    &-collapsed {
+      width: 35px;
+    }
+
+    &-icon {
+      height: 32px;
+      width: 32px;
+    }
+  
+    &-label {
+      font-weight: 500;
+      margin-left: 10px;
+      overflow: hidden;
+    }
+  }
+
+  &:hover {
+    background-color: #01A9E4;
+    border-radius: 4px;
+  }
+}
