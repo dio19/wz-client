@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import UsersTable from './index';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 describe('Tests Users Table', () => {
   it('should match snapshot with true value', () => {
@@ -7,7 +8,7 @@ describe('Tests Users Table', () => {
       isOpen: true,
     };
 
-    const { asFragment } = render(<UsersTable {...props} />);
+    const { asFragment } = render(<Router><UsersTable {...props} /></Router>);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -16,7 +17,7 @@ describe('Tests Users Table', () => {
       isOpen: false,
     };
 
-    const { asFragment } = render(<UsersTable {...props} />);
+    const { asFragment } = render(<Router><UsersTable {...props} /></Router>);
     expect(asFragment()).toMatchSnapshot();
   });
 

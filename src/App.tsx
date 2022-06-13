@@ -10,7 +10,8 @@ import { SideMenuItem } from './types/interfaces';
 import SideMenu from './components/SideMenu';
 import Tasks from './components/Tasks';
 import Users from './components/UsersTable';
-import UserDetail from './components/UserDetail'
+import UserDetail from './components/UserDetail';
+import handleBack from './utils/handleBack';
 
 import './App.scss';
 
@@ -43,7 +44,7 @@ function App() {
         <Route path="/" element={<Users isOpen={isOpen}/>}  />
         <Route path="/tasks" element={<Tasks isOpen={isOpen} />} />
         <Route path="/users" element={<Users isOpen={isOpen}/>} />
-        <Route path="/users/:id" element={<UserDetail />} />
+        <Route path="/users/:id" element={<UserDetail eventHandler={handleBack}/>} />
       </Routes>
     </div>
   </BrowserRouter>

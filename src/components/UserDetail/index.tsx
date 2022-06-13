@@ -25,7 +25,11 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function Popup() {
+interface PopupProps {
+  eventHandler: (event: MouseEventButton) => void;
+}
+
+function Popup({eventHandler}: PopupProps) {
     const classes = useStyles();
     const [ open, setOpen ] = useState(true);
     const [ dataUser, setDataUser ] = useState<DataUser | undefined>(undefined);
@@ -34,9 +38,8 @@ function Popup() {
     const { id } = params;
 
     const handleBack = (e: MouseEventButton) => {
-      e.preventDefault()
+      eventHandler(e)
       setOpen(false)
-      window && window.history.back();
     };
    
     const getUserById = useCallback(async () => {

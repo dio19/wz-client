@@ -79,6 +79,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
           <TableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
+            align="center"
           >
             {headCell.disableSorting ? headCell.label :
                 <TableSortLabel
@@ -229,10 +230,10 @@ export default function EnhancedTable({isOpen}: TableProps) {
                               <TableRow
                                 key={index}
                               >
-                                <TableCell>{row.id}</TableCell>
-                                <TableCell>{row.title}</TableCell>
-                                <TableCell>{row.user_id}</TableCell>
-                                <TableCell>{row.completed.toString()}</TableCell>
+                                <TableCell align="center">{row.id}</TableCell>
+                                <TableCell align="center">{row.title}</TableCell>
+                                <TableCell align="center">{row.user_id}</TableCell>
+                                <TableCell align="center">{row.completed.toString()}</TableCell>
                               </TableRow>
                             );
                           })}
