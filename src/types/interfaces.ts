@@ -28,6 +28,18 @@ interface Users {
   data: Array<DataUser>
 }
 
+interface DataTask {
+  id: number
+  title: string
+  user_id: number
+  completed: boolean
+}
+
+interface Tasks {
+  total_items: number
+  data: Array<DataTask>
+}
+
 interface SideMenuItem {
     id: string,
     label: string,
@@ -35,7 +47,7 @@ interface SideMenuItem {
     url: string
 }
 
-interface UsersTableProps {
+interface TableProps {
   isOpen: boolean
 }
 
@@ -50,10 +62,19 @@ interface SideMenuProps {
   handleOnClick: () => void
 }
 
+interface HeadCell {
+  id: keyof DataTask
+  label: string
+  disableSorting: boolean
+}
+
 export type { 
   Users,
+  Tasks,
+  DataTask,
   SideMenuItem,
-  UsersTableProps,
+  TableProps,
   SideMenuItemViewProps,
-  SideMenuProps
+  SideMenuProps,
+  HeadCell
 }

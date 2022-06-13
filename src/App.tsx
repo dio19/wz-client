@@ -24,13 +24,13 @@ function App() {
     {
       id: "1",
       label: "Users",
-      icon: AssignmentTurnedInIcon,
+      icon: AssignmentIndIcon,
       url: "/users"
     },
     {
       id: "2",
       label: "Tasks",
-      icon: AssignmentIndIcon,
+      icon: AssignmentTurnedInIcon,
       url: "/tasks"
     },
   ];
@@ -41,7 +41,7 @@ function App() {
       <SideMenu items={items} isOpen={isOpen} handleOnClick={handleOnClick}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/tasks" element={<Tasks isOpen={isOpen} />} />
         <Route path="/users" element={<Users isOpen={isOpen}/>} />
       </Routes>
     </div>
