@@ -42,7 +42,5 @@ El detalle del usuario se renderiza al dirigirnos a la siguiente ruta ``` http:/
 ### Tablas de las Tasks
 
 <img width="1440" alt="Captura de Pantalla 2022-06-13 a las 15 46 32" src="https://user-images.githubusercontent.com/55143009/173423393-a1ca9e2a-995e-4322-8abb-d5d1e468c292.png">
-En la ruta 
-
-en la ruta ``` http://localhost:3000/tasks ``` se renderiza una tabla completa de todas las tasks que aloje previamente en la DB con la posibilidad de ordenar de mayor a menor y menor a mayor, como asi tambien paginar los resultados por diferente
+En la ruta  ``` http://localhost:3000/tasks ``` se renderiza una tabla completa de todas las tasks que aloje previamente en la DB con la posibilidad de ordenar de mayor a menor y menor a mayor, como asi tambien paginar los resultados por diferente
 cantidad de items a mostrar, comprimir las filas cuando son muchos datos y un buscador por titulo.
