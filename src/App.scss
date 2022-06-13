@@ -20,19 +20,20 @@
   
     &__button {
         position: relative;
-        color: #00a9e5;
+        color: #FFF;
+        font-size: 10px;
         font-weight: 600;
         border: 2px solid #00a9e5;
         border-radius: 8px;
-        text-transform: uppercase;
-        background-color: transparent;
+        background-color: #222;
         cursor: pointer;
         transition: 1.5s;
+        padding: 6px;
     }
   
     &__button:hover {
-        box-shadow: 0 5px 5px 0 #00a9e5 inset, 0 5px 50px 0 #00a9e5, 0 5px 5px 0 #00a9e5 inset, 0 5px 50px 0 #00a9e5;
-        text-shadow: 0 0 5px #00a9e5;
+        box-shadow: 0 3px 3px 0 #00a9e5 inset, 0 5px 50px 0 #00a9e5, 0 3px 3px 0 #00a9e5 inset, 0 3px 12px 0 #00a9e5;
+        text-shadow: 0 0 3px #00a9e5;
     }
   }
 

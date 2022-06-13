@@ -11,6 +11,7 @@ import Home from './components/Home';
 import SideMenu from './components/SideMenu';
 import Tasks from './components/Tasks';
 import Users from './components/UsersTable';
+import UserDetail from './components/UserDetail'
 
 import './App.scss';
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tasks" element={<Tasks isOpen={isOpen} />} />
         <Route path="/users" element={<Users isOpen={isOpen}/>} />
+        <Route path="/users/:id" element={<UserDetail />} />
       </Routes>
     </div>
   </BrowserRouter>

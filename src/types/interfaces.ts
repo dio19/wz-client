@@ -4,7 +4,7 @@ interface DataUser {
   name: string
   username: string
   email: string
-  address: {
+  adress: {
     street: string,
     suite: string,
     city: string,
@@ -18,7 +18,7 @@ interface DataUser {
   website: string,
   company: {
     name: string,
-    catchPhrase: string,
+    catch_phrase: string,
     bs: string
   }
 }
@@ -68,13 +68,23 @@ interface HeadCell {
   disableSorting: boolean
 }
 
+interface MouseEventTarget extends EventTarget {
+  id: string
+}
+
+interface MouseEventButton extends React.MouseEvent<HTMLButtonElement> {
+  target: MouseEventTarget
+}
+
 export type { 
   Users,
   Tasks,
   DataTask,
+  DataUser,
   SideMenuItem,
   TableProps,
   SideMenuItemViewProps,
   SideMenuProps,
-  HeadCell
+  HeadCell,
+  MouseEventButton
 }

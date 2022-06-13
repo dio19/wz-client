@@ -11,7 +11,8 @@ import {
   TablePagination,
   Paper,
 } from "@material-ui/core";
-import { Users, TableProps } from '../../types/interfaces';
+import { useNavigate } from "react-router-dom";
+import { Users, TableProps, MouseEventButton } from '../../types/interfaces';
 
 const UsersTable = ({isOpen}: TableProps) => {
   const [ users, setUsers ] = useState<Users | undefined>(undefined);
@@ -34,6 +35,15 @@ const UsersTable = ({isOpen}: TableProps) => {
     }
   }, [users]);
 
+  const navigate = useNavigate();
+  const handleNavigate = (id: string) => navigate(`/users/${id}`);
+
+  const handleGetDetail = (e: MouseEventButton) => {
+    e.preventDefault()
+    const idString = e.target.id
+    handleNavigate(idString)
+  };
+
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -50,11 +60,12 @@ const UsersTable = ({isOpen}: TableProps) => {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
               <TableRow>
-                <TableCell align="center">Id</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Username</TableCell>
-                <TableCell align="center">Email</TableCell>
-                <TableCell align="center">Phone</TableCell>
+                  <TableCell align="center">Id</TableCell>
+                  <TableCell align="center">Name</TableCell>
+                  <TableCell align="center">Username</TableCell>
+                  <TableCell align="center">Email</TableCell>
+                  <TableCell align="center">Phone</TableCell>
+                  <TableCell align="center">Actions</TableCell>
               </TableRow>
           </TableHead>
           <TableBody>
@@ -62,7 +73,7 @@ const UsersTable = ({isOpen}: TableProps) => {
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((user) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={user.id}>
+                <TableRow hover tabIndex={-1} key={user.id}>
                   <TableCell align="center" component="th" scope="row">
                     {user.id}
                   </TableCell>
@@ -70,6 +81,7 @@ const UsersTable = ({isOpen}: TableProps) => {
                   <TableCell align="center">{user.username}</TableCell>
                   <TableCell align="center">{user.email}</TableCell>
                   <TableCell align="center">{user.phone}</TableCell>
+                  <TableCell align="center"><button className="table-container__button" id={user.id.toString()} onClick={handleGetDetail}>Detail</button></TableCell>
                 </TableRow>
               );
             })}
