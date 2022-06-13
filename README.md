@@ -3,7 +3,7 @@
 ### Version deployada en Netlify
 
 ```
-[https://wz-client-dionisio.netlify.app/](https://wz-client-dionisio.netlify.app/)
+https://wz-client-dionisio.netlify.app/
 
 ```
 
