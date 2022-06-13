@@ -43,7 +43,6 @@ function Popup() {
       try {
         const response = await fetch(`https://wz-server-dio.herokuapp.com/users/${id}`)
         const jsonResponse = await response.json()
-        console.log('data user', jsonResponse)
         setDataUser(jsonResponse)
       } catch (e) {
         console.error(e);
@@ -65,13 +64,13 @@ function Popup() {
             Address
           </Typography>
           <Typography variant="h6" component="div">
-            {`City: ${dataUser.adress.city}`}
+            {`City: ${dataUser.address.city}`}
           </Typography>
           <Typography variant="h6" component="div">
-            {`Latitude: ${dataUser.adress.geo.lat}`}
+            {`Latitude: ${dataUser.address.geo.lat}`}
           </Typography>
           <Typography variant="h6" component="div">
-            {`Longitude: ${dataUser.adress.geo.lng}`}
+            {`Longitude: ${dataUser.address.geo.lng}`}
           </Typography>
           <Typography variant="subtitle1" component="div">
             Company

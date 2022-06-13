@@ -132,6 +132,7 @@ export default function EnhancedTable({isOpen}: TableProps) {
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [query, setQuery] = useState("")
 
   const getTasks = async () => {
     try {
@@ -143,10 +144,21 @@ export default function EnhancedTable({isOpen}: TableProps) {
     }
   }
 
+  const getTasksByQuery = async (value:string) => {
+    try {
+      const response = await fetch(`https://wz-server-dio.herokuapp.com/tasks?title=${value}`)
+      const json = await response.json()
+      setRows(json.data)
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   useEffect(() => {
     if (rows === undefined) {
       getTasks();
     }
+
   }, [rows]);
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof DataTask) => {
@@ -168,17 +180,27 @@ export default function EnhancedTable({isOpen}: TableProps) {
     setDense(event.target.checked);
   };
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value !== "") {
+      getTasksByQuery(value)
+    }
+    if (value === "") {
+      console.log("entre")
+      getTasks()
+    }
+  };
+
   const emptyRows = rows === undefined ? 0 : rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classNames("table-container", {"table-container-collapsed": !isOpen})}>
         {rows === undefined ? <CircularProgress /> : (
                   <Paper className={classes.paper}>
-                  {/* <Toolbar>
+                  <Toolbar>
                       <TextField
                           variant="outlined"
                           label="Search Tasks"
-                          className={classes.searchInput}
                           InputProps={{
                               startAdornment: (<InputAdornment position="start">
                                   <Search />
@@ -186,7 +208,7 @@ export default function EnhancedTable({isOpen}: TableProps) {
                           }}
                           onChange={handleSearch}
                       />
-                  </Toolbar> */}
+                  </Toolbar>
                   <TableContainer>
                     <Table
                       className={classes.table}
@@ -212,7 +234,7 @@ export default function EnhancedTable({isOpen}: TableProps) {
                                 <TableCell>{row.id}</TableCell>
                                 <TableCell>{row.title}</TableCell>
                                 <TableCell>{row.user_id}</TableCell>
-                                <TableCell>{row.completed}</TableCell>
+                                <TableCell>{row.completed.toString()}</TableCell>
                               </TableRow>
                             );
                           })}
