@@ -132,7 +132,6 @@ export default function EnhancedTable({isOpen}: TableProps) {
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [query, setQuery] = useState("")
 
   const getTasks = async () => {
     try {
@@ -186,7 +185,6 @@ export default function EnhancedTable({isOpen}: TableProps) {
       getTasksByQuery(value)
     }
     if (value === "") {
-      console.log("entre")
       getTasks()
     }
   };

@@ -7,7 +7,6 @@ import {
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import { SideMenuItem } from './types/interfaces';
-import Home from './components/Home';
 import SideMenu from './components/SideMenu';
 import Tasks from './components/Tasks';
 import Users from './components/UsersTable';
@@ -41,7 +40,7 @@ function App() {
     <div>
       <SideMenu items={items} isOpen={isOpen} handleOnClick={handleOnClick}/>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Users isOpen={isOpen}/>}  />
         <Route path="/tasks" element={<Tasks isOpen={isOpen} />} />
         <Route path="/users" element={<Users isOpen={isOpen}/>} />
         <Route path="/users/:id" element={<UserDetail />} />

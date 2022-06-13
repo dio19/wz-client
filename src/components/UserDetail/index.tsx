@@ -51,7 +51,7 @@ function Popup() {
   
     useEffect(() => {
       getUserById();
-    }, []);
+    }, [getUserById]);
 
     const detailDataUser = useMemo(() => {
       return (
