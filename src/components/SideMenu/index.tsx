@@ -1,7 +1,8 @@
 import {
   NavLink
 } from 'react-router-dom';
-import { VscMenu } from 'react-icons/vsc';
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
+import Menu from '@material-ui/icons/Menu';
 import classNames from 'classnames';
 import { SideMenuProps } from '../../types/interfaces';
 import SideMenuItemView from '../SideMenuItemView';
@@ -16,7 +17,7 @@ const SideMenu = ({items, isOpen, handleOnClick}: SideMenuProps) => {
     <nav className={classNames("SideMenu", {"SideMenu-collapsed": !isOpen})}>
       <div className="SideMenu__button">
         <button className="SideMenu__button-icon" onClick={handleOnClick}>
-          <VscMenu />
+          {isOpen ? <MenuOpenIcon/> : <Menu/>}
         </button>
       </div>
       <NavLink to="/" className={classNames("SideMenu__logo", {"SideMenu__logo-collapsed": !isOpen})} children={logo}></NavLink>
